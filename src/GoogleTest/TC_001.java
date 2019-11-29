@@ -2,17 +2,21 @@ package GoogleTest;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TC_001 {
-	WebDriver driver = new FirefoxDriver();
+	 
+	public WebDriver driver;
 	
 	@BeforeMethod
 	public void OPenBrowser(){
-		System.out.println("this is Open browser");
+		System.out.println("this is open browser");
+
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "//Drivers/chromedriver.exe");
+		driver = new ChromeDriver();
 		driver.get("https://www.google.com/");
 	}
 	
